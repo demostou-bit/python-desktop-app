@@ -1,0 +1,17 @@
+import sqlite3
+
+#コネクションオブジェクトの作成
+conn = sqlite3.connect( 'sample.db' )
+
+#カーソルオブジェクトの作成
+cur = conn.cursor()
+
+#personalテーブルの生成
+cur.execute("""CREATE TABLE personal (
+  id TEXT PRIMARY KEY,
+  name TEXT NOT NULL,
+  height INTEGER NOT NULL,
+  weight REAL NOT NULL)""")
+
+print('personalテーブルを作成しました。')
+conn.close()
